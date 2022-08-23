@@ -1,0 +1,6 @@
+asyncio
+datetime
+discord
+dotenv
+os
+requests
