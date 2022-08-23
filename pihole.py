@@ -89,7 +89,7 @@ async def on_ready():
     print(f"Logged in as Username: {client.user.name}")
     print(f"User ID: {client.user.id}")
     print("-----------")
-    await client.user.edit(avatar=ICON)
+    await client.user.edit(avatar=ICON_BYTES)
 
     while True:
         await update_bot()
