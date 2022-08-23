@@ -9,9 +9,10 @@ load_dotenv()
 
 SERVER = os.getenv("SERVER")
 UPDATE_FREQUENCY = os.getenv("UPDATE_FREQUENCY")
-DECIMAL_PLACES = os.getenv("DECIMAL_PLACES")
 TOKEN = os.getenv("TOKEN")
 GUILD_ID = os.getenv("GUILD_ID")
+
+DECIMAL_PLACES = 2
 
 ICON_PATH = "src/icon.jpeg"
 ICON = open(ICON_PATH, "rb")
