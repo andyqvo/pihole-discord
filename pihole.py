@@ -26,8 +26,11 @@ def fetch_info():
         return res.json()
 
 
-def build_embed(title, description, color=0x239dd1):
+def build_embed(title="", description="", fields=[], color=0x239dd1):
     embed = discord.Embed(title=title, description=description, color=color)
+
+    for field in fields:
+        embed.add_field(name=field.get("name"), value=field.get("value"), inline=field.get("inline"))
 
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
@@ -44,17 +47,19 @@ async def help_command(channel_id):
 
 async def show_stats(channel_id):
     info = fetch_info()
-    domains_being_blocked = "{:,}".format(info.get("domains_being_blocked"))
-    dns_queries_today = "{:,}".format(info.get("dns_queries_today"))
-    ads_blocked_today = "{:,}".format(info.get("ads_blocked_today"))
-    ads_percentage_today = "{:,.2f}".format(info.get("ads_percentage_today"))
+    domains_being_blocked = "`{:,}`".format(info.get("domains_being_blocked"))
+    dns_queries_today = "`{:,}`".format(info.get("dns_queries_today"))
+    ads_blocked_today = "`{:,}`".format(info.get("ads_blocked_today"))
+    ads_percentage_today = "`{:,.2f}%`".format(info.get("ads_percentage_today"))
 
-    description = ""
-    description += f"Total Queries: {dns_queries_today}\n"
-    description += f"Queries Blocked: {ads_blocked_today}\n"
-    description += f"Percentage Blocked: {ads_percentage_today}%\n"
-    description += f"Domains on Adlists: {domains_being_blocked}\n"
-    embed = build_embed(title="Stats", description=description)
+    fields = [
+        {"name": "Total Queries", "value": domains_being_blocked, "inline": False},
+        {"name": "Queries Blocked", "value": ads_blocked_today, "inline": False},
+        {"name": "Percentage Blocked", "value": ads_percentage_today, "inline": False},
+        {"name": "Domains on Adlists", "value": domains_being_blocked, "inline": False},
+    ]
+
+    embed = build_embed(title="Stats", fields=fields)
 
     await client.get_channel(channel_id).send(embed=embed)
 
