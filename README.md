@@ -2,6 +2,11 @@
 
 ## <div classname="subtitle" align=center>A Discord bot to get Pi-Hole stats</div>
 
+<div align="center">
+    <a href="https://github.com/andyqvo/pihole-discord/issues">Report Bug</a> | 
+    <a href="https://github.com/andyqvo/pihole-discord/issues">Request Features</a> 
+</div>
+
 ## 📸 Screenshots
 <div align="center"><img src="screenshots/stats.png" width="50%"></div>
 <div align="center"><img src="screenshots/help.png" width="50%"></div>
