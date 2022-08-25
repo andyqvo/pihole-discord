@@ -2,5 +2,4 @@ asyncio
 datetime
 discord.py
 dotenv
-os
 requests
