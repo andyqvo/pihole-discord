@@ -1,6 +1,6 @@
 asyncio
 datetime
-discord
+discord.py
 dotenv
 os
 requests
