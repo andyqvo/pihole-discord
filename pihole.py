@@ -54,7 +54,7 @@ async def show_stats(channel_id):
     ads_percentage_today = "`{:,.2f}%`".format(info.get("ads_percentage_today"))
 
     fields = [
-        {"name": "Total Queries", "value": domains_being_blocked, "inline": False},
+        {"name": "Total Queries", "value": dns_queries_today, "inline": False},
         {"name": "Queries Blocked", "value": ads_blocked_today, "inline": False},
         {"name": "Percentage Blocked", "value": ads_percentage_today, "inline": False},
         {"name": "Domains on Adlists", "value": domains_being_blocked, "inline": False},
